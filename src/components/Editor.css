@@ -1,0 +1,10 @@
+#editor {
+    background-color: var(--light-accent);
+    width: 100%;
+    padding: 1rem;
+    border: var(--default-border);
+}
+
+textarea {
+    resize: vertical;
+}

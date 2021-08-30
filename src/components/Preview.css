@@ -1,0 +1,18 @@
+#preview {
+    background-color: var(--light-accent);
+    padding: 2rem 1.7rem 2rem 1.7rem;
+    border: var(--default-border);
+    line-height: 1.6;
+    min-height: 200px;
+}
+
+#preview code {
+    background-color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+#preview pre {
+    background-color: white;
+    padding: 0.7em;
+}

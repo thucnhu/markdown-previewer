@@ -3,16 +3,17 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
     --background-base: #74bebe;
-    --dark-accent: #224b4b;
-    --light-accent: #2cda9d;
+    --dark-accent: #439494;
+    --light-accent: #d8ece9;
     --default-border: 1px solid black;
-    --default-shadow: 1px 1px 10px 2px darken(var(--background-base), 20%);
+    --default-shadow: 5px 5px 10px 10px var(--dark-accent);
     font-size: 16px;
-    font-family: 'Russo One';
+    font-family: sans-serif;
 }
 
 body {

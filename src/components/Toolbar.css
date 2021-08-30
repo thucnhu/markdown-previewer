@@ -1,0 +1,18 @@
+.toolbar {
+    font-family: Russo One;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark-accent);
+    padding: 0.4rem;
+    border: solid 1px black;
+}
+
+.fa-compress-alt, .fa-expand-arrows-alt {
+    cursor: pointer;
+}
+
+.fa-compress-alt:hover, .fa-expand-arrows-alt:hover {
+    color: var(--light-accent);
+    transition: 150ms ease;
+}

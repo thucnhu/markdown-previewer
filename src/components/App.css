@@ -1,0 +1,29 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.preview-hide, .editor-hide {
+    display: none;
+}
+
+.editor-wrap, .editor-maximized {
+    margin: 2rem 0 1rem 0;
+    max-width: 700px;
+    width: 80%;
+    box-shadow: var(--default-shadow);
+}
+
+.preview-wrap, .preview-maximized {
+    margin: 1rem 0 2rem 0;
+    max-width: 900px;
+    width: 90%;
+    box-shadow: var(--default-shadow);
+}
+
+img {
+    width: 100%;
+    padding: 1rem;
+}

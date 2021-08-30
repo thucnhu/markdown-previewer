@@ -9,7 +9,7 @@ export default function Editor(props) {
                 name="editor" 
                 id="editor" 
                 value={props.markdown}
-                rows="50"
+                rows={props.rows}
                 onChange={props.onChange}
             />
         </div>

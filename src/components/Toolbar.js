@@ -4,10 +4,10 @@ import "./Toolbar.css"
 
 export default function Toolbar(props) {
     return (
-        <div>
-            <i className="fab fa-free-code-camp"></i>
+        <div className="toolbar">
+            <i className="fab fa-free-code-camp fa-lg"></i>
             {props.text}
-            <i className={props.icon}></i>
+            <i className={props.icon} onClick={props.onClick}></i>
         </div>
     )
 }
