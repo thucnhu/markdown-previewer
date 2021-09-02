@@ -12,6 +12,59 @@ marked.setOptions({
     }
 })
 const renderer = new marked.Renderer()
+
+
+export default function App() {
+    const [markdown, setMarkdown] = useState(placeholder)
+    const [editorMaximized, setEditorMaximized] = useState(false)
+    const [previewMaximized, setPreviewMaximized] = useState(false)
+    
+    const classes = editorMaximized 
+    ? ['editor-maximized', 'preview-hide', 'fas fa-compress-alt']
+        : previewMaximized
+        ? ['editor-hide', 'preview-maximized', 'fas fa-compress-alt']
+        : ['editor-wrap', 'preview-wrap', 'fas fa-expand-arrows-alt']
+        
+        function handleChange(event) {
+        setMarkdown(event.target.value)
+    }
+
+    function handleMaximizeEditor() {
+        setEditorMaximized(!editorMaximized)
+    }
+
+    function handleMaximizePreviewer() {
+        setPreviewMaximized(!previewMaximized)
+    }
+    
+    return (
+        <div className="app">
+            <div className={classes[0]}>
+                <Toolbar 
+                    icon={classes[2]}
+                    onClick={handleMaximizeEditor}
+                    text="Editor"
+                />
+                <Editor 
+                    markdown={markdown} 
+                    onChange={handleChange} 
+                    rows={editorMaximized ? "40" : "13"}
+                />
+            </div>
+
+            <div className={classes[1]}>
+                <Toolbar 
+                    icon={classes[2]}
+                    onClick={handleMaximizePreviewer}
+                    text="Previewer"
+                />
+                <Preview markdown={markdown} renderer={renderer} />
+            </div>
+        </div>
+    )
+}
+
+
 const placeholder = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -43,54 +96,3 @@ There's also [links](https://www.freecodecamp.org), and
         - That look like this.
 
 ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)`
-
-
-export default function App() {
-    const [markdown, setMarkdown] = useState(placeholder)
-    const [editorMaximized, setEditorMaximized] = useState(false)
-    const [previewMaximized, setPreviewMaximized] = useState(false)
-
-    const classes = editorMaximized 
-        ? ['editor-maximized', 'preview-hide', 'fas fa-compress-alt']
-        : previewMaximized
-        ? ['editor-hide', 'preview-maximized', 'fas fa-compress-alt']
-        : ['editor-wrap', 'preview-wrap', 'fas fa-expand-arrows-alt']
-
-    function handleChange(event) {
-        setMarkdown(event.target.value)
-    }
-
-    function handleMaximizeEditor() {
-        setEditorMaximized(!editorMaximized)
-    }
-
-    function handleMaximizePreviewer() {
-        setPreviewMaximized(!previewMaximized)
-    }
-
-    return (
-        <div className="app">
-            <div className={classes[0]}>
-                <Toolbar 
-                    icon={classes[2]}
-                    onClick={handleMaximizeEditor}
-                    text="Editor"
-                />
-                <Editor 
-                    markdown={markdown} 
-                    onChange={handleChange} 
-                    rows={editorMaximized ? "40" : "13"}
-                />
-            </div>
-
-            <div className={classes[1]}>
-                <Toolbar 
-                    icon={classes[2]}
-                    onClick={handleMaximizePreviewer}
-                    text="Previewer"
-                />
-                <Preview markdown={markdown} renderer={renderer} />
-            </div>
-        </div>
-    )
-}
